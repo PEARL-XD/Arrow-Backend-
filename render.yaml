@@ -1,0 +1,36 @@
+# Deploy this backend directory as its own private repository, with this file at
+# its root. This defines a FREE sandbox service, not a paid production deployment.
+# Owner-managed UptimeRobot: HTTP(S) /ready, every five minutes, up/down alerts.
+# No external ping worker or paid resource is provisioned by this Blueprint.
+services:
+  - type: web
+    name: arrow-lantern-sandbox
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /ready
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: STORE_ENVIRONMENT
+        value: sandbox
+      - key: PURCHASES_ENABLED
+        value: "false"
+      - key: REQUIRE_HTTPS
+        value: "true"
+      - key: TRUST_PROXY_HOPS
+        value: "1"
+      - key: MONGODB_DATABASE
+        value: arrow_lantern_sandbox
+      - key: MONGODB_URI
+        sync: false
+      - key: RECEIPT_ENCRYPTION_KEY
+        sync: false
+      - key: ANDROID_PACKAGE_NAME
+        value: com.cleanchops.arrowthelastlantern
+      - key: APPLE_SIGN_IN_BUNDLE_ID
+        value: com.cleanchops.arrowthelastlantern

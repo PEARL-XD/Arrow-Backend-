@@ -1,0 +1,50 @@
+# Dependencies and generated output (keep package-lock.json tracked).
+node_modules/
+coverage/
+.nyc_output/
+dist/
+.cache/
+.mongodb-binaries/
+
+# Private environment values; keep the credential-free setup template.
+.env
+.env.*
+!.env.example
+.npmrc
+
+# Store every downloaded provider credential in secrets/ or credentials/.
+# Provider JSON files can have arbitrary names; do not commit them elsewhere.
+secrets/
+credentials/
+service-account*.json
+*-service-account*.json
+*credentials*.json
+*.p8
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local databases, MongoDB exports and backups.
+data/
+backups/
+dump/
+*.sqlite*
+*.db
+*.db-shm
+*.db-wal
+*.bson
+*.bson.gz
+*.archive
+*.archive.gz
+
+# Logs, temporary files and machine-specific clutter.
+*.log
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini

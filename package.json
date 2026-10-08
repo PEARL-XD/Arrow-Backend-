@@ -1,0 +1,25 @@
+{
+  "name": "arrow-lantern-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.15.0 <25" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test test/*.test.js",
+    "reconcile": "node --env-file-if-exists=.env src/reconcile_cli.js",
+    "maintenance": "node --env-file-if-exists=.env src/maintenance_cli.js"
+  },
+  "dependencies": {
+    "@apple/app-store-server-library": "^3.0.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "google-auth-library": "^10.5.0",
+    "helmet": "^8.1.0",
+    "jose": "^6.1.0",
+    "mongodb": "^7.7.0"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0"
+  }
+}
